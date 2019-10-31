@@ -1,6 +1,8 @@
-## PDF
+{% include mathjax.html %}
 
-[Proposal](./proposal.pdf)
+## Proposal
+
+[PDF](./proposal.pdf)
 
 ## Summary
 
