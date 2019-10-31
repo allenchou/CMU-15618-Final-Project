@@ -22,7 +22,7 @@ Borůvka's algorithm has two main steps. The first is to find the adjacent edge 
 
 ## Resources
 
-We will implement all algorithms from scratch. There are several [research papers](#references) about parallel MST. There is also a good summary in [Wikipedia](https://en.wikipedia.org/wiki/Parallel_algorithms_for_minimum_spanning_trees). As far as we know, there is no code available online. We are going to run our initial experiment on GHC machines and [CloudLab](https://www.cloudlab.us/) if available.
+We will implement all algorithms from scratch. There are several research papers about parallel MST (in References section). There is also a good summary in [Wikipedia](https://en.wikipedia.org/wiki/Parallel_algorithms_for_minimum_spanning_trees). As far as we know, there is no code available online. We are going to run our initial experiment on GHC machines and [CloudLab](https://www.cloudlab.us/) if available.
 
 ## Goals and Deliverables
 
