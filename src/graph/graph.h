@@ -6,9 +6,21 @@
 #define MST_GRAPH_H
 
 #include <unordered_map>
+#include <utility>
+#include <vector>
 
-class Graph {
+struct Edge {
+    int from;
+    int to;
+    double weight;
+};
 
+struct Graph {
+    Graph(const int num_vertices, std::vector<Edge> edges): num_vertices(num_vertices), edges(std::move(edges)) {}
+    void printGraph();
+
+    int num_vertices;
+    std::vector<Edge> edges;
 };
 
 

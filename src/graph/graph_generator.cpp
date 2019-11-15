@@ -14,8 +14,8 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-    size_t num_nodes = 1000;
-    double prob_thre_edge = 0.5;
+    size_t num_nodes = 5000;
+    double prob_thre_edge = 0.05;
     double upper_weight = 1.0;
     double lower_weight = 10.0;
 
@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     uniform_real_distribution<double> edge_dist(0, 1);
     uniform_real_distribution<double> weight_dist(upper_weight, lower_weight);
 
-    string filename = "random_" + to_string(num_nodes) + ".txt";
+    string filename = "random_" + to_string(num_nodes) + "_" + to_string(prob_thre_edge) + ".txt";
     ofstream fout;
     fout.open(filename);
     fout << num_nodes << endl;

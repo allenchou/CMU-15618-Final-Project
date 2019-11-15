@@ -6,8 +6,18 @@
 #define MST_DISJOINT_SET_H
 
 
-class DisjointSet {
+#include <vector>
 
+class DisjointSet {
+public:
+    explicit DisjointSet(int);
+    int findSet(int);
+    void unionSet(int, int);
+    bool belongSameSet(int, int);
+private:
+    int num_nodes;
+    std::vector<int> ranks;
+    std::vector<int> parents;
 };
 
 
