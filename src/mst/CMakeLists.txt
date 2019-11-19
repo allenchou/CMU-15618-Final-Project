@@ -8,9 +8,18 @@
 #message(STATUS "Boost_VERSION: ${Boost_VERSION}")
 
 include_directories(
-        ${PROJECT_SOURCE_DIR}/src/graph
+        ${PROJECT_SOURCE_DIR}/src/utils
 #        ${Boost_INCLUDE_DIRS}
 )
 
 add_executable(kruskal_seq kruskal_seq.cpp)
 target_link_libraries(kruskal_seq graph)
+
+add_executable(kruskal_par_sort kruskal_par_sort.cpp)
+target_link_libraries(kruskal_par_sort graph)
+
+add_executable(kruskal_filter kruskal_filter.cpp)
+target_link_libraries(kruskal_filter graph)
+
+
+

@@ -16,8 +16,12 @@ struct Edge {
 };
 
 struct Graph {
+    Graph() {}
     Graph(const int num_vertices, std::vector<Edge> edges): num_vertices(num_vertices), edges(std::move(edges)) {}
     void printGraph();
+
+    void loadGraph(const std::string& filename);
+    void saveGraph(const std::string& filename);
 
     int num_vertices;
     std::vector<Edge> edges;
