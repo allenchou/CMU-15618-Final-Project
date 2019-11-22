@@ -6,6 +6,7 @@
  * @bug No known bugs.
  */
 
+#include <cassert>
 #include <iostream>
 #include <random>
 #include "graph.h"
@@ -13,10 +14,15 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
+    
+    // Parse the arguement.
+    if (argc != 3) {
+        cerr << "graph_generator <num_nodes> <edge_prob>" << endl;
+        return 1;
+    }
 
-    int num_nodes = 5000;
-    string s_prob_thre_edge = "0.1";
-    double prob_thre_edge = stod(s_prob_thre_edge);
+    int num_nodes = atoi(argv[1]);
+    double prob_thre_edge = stod(argv[2]);
     double upper_weight = 1.0;
     double lower_weight = 10.0;
 
@@ -36,9 +42,8 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-    cout << "#node: " << src_graph.num_vertices << " #edge: " << src_graph.edges.size() << endl;
 
-    string filename = "random_" + to_string(num_nodes) + "_" + s_prob_thre_edge + ".txt";
+    string filename = "./data/random_" + to_string(num_nodes) + "_" + to_string(prob_thre_edge) + ".txt";
     src_graph.saveGraph(filename);
 
     dst_graph.loadGraph(filename);
@@ -51,6 +56,9 @@ int main(int argc, char *argv[]) {
         assert(src_graph.edges[i].to == dst_graph.edges[i].to);
         assert((src_graph.edges[i].weight - dst_graph.edges[i].weight) < 0.1);
     }
+
+    cout << "#node: " << src_graph.num_vertices << " #edge: " << src_graph.edges.size() << endl;
+    cout << "Save to " << filename << endl;
 
     return 0;
 }

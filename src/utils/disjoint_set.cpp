@@ -2,6 +2,7 @@
 // Created by Xuren Zhou on 11/12/19.
 //
 
+#include <cassert>
 #include "disjoint_set.h"
 
 DisjointSet::DisjointSet(const int n): num_nodes(n), ranks(n, 1) {

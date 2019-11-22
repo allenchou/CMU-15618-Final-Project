@@ -44,8 +44,8 @@ Graph kruskalMSTSequential(const Graph &graph) {
     return {graph.num_vertices, mst_edges};
 }
 
-int main() {
-    std::string filename = "/Users/allenchou/Documents/CMU_courses/15618/project/CMU-15618-Final-Project/data/random_10000_0.2.txt";
+int main(int argc, char *argv[]) {
+    std::string filename = argv[1];
     std::cout << "File name: " << filename << std::endl;
     struct timeval start, end;
     double duration;
