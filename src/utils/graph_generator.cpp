@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    string filename = "./data/random_" + to_string(num_nodes) + "_" + to_string(prob_thre_edge) + ".txt";
+    string filename = "./data/random_" + to_string(num_nodes) + "_" + to_string(prob_thre_edge);
     src_graph.saveGraph(filename);
 
     dst_graph.loadGraph(filename);
