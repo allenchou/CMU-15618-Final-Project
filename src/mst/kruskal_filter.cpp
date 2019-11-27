@@ -81,6 +81,11 @@ Graph kruskalMST(const Graph &graph) {
 }
 
 int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        std::cerr << "Invalid command: bin/kruskal_seq <data_path>"
+                  << std::endl;
+        return 1;
+    }
     std::string filename = argv[1];
     std::cout << "File name: " << filename << std::endl;
     struct timeval start, end;
@@ -96,7 +101,11 @@ int main(int argc, char *argv[]) {
 
     // Execute the algorithm and print the MST.
     Graph mst = kruskalMST(graph);
-//    mst.printGraph();
+
+    // Save the result.
+    std::string output_filename = filename + ".filter.output";
+    std::cout << "Saving MST to " << output_filename << "." << std::endl;
+    mst.saveGraph(output_filename);
 
     return 0;
 }

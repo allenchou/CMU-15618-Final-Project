@@ -1,6 +1,8 @@
+//
+// Created by Wenting Ye on 11/14/19.
+//
 #include <algorithm>
 #include <iostream>
-#include <fstream>
 #include <sys/time.h>
 #include "disjoint_set.h"
 #include "graph.h"
@@ -20,7 +22,7 @@ Graph kruskalMSTSequential(const Graph &graph) {
     std::sort(edges.begin(), edges.end(), compareByWeight);
     gettimeofday(&end, nullptr);
     duration = (double)((end.tv_sec  - start.tv_sec) * 1000000u +
-            end.tv_usec - start.tv_usec) / 1.e6;
+                        end.tv_usec - start.tv_usec) / 1.e6;
     total += duration;
     std::cout << "Sort time: " << duration << " s." << std::endl;
 
@@ -35,8 +37,8 @@ Graph kruskalMSTSequential(const Graph &graph) {
         }
     }
     gettimeofday(&end, nullptr);
-    duration = (double)((end.tv_sec  - start.tv_sec) * 1000000u +
-                        end.tv_usec - start.tv_usec) / 1.e6;
+    duration = (double) ((end.tv_sec - start.tv_sec) * 1000000u +
+                         end.tv_usec - start.tv_usec) / 1.e6;
     total += duration;
     std::cout << "Merging time: " << duration << " s." << std::endl;
     std::cout << "total time: " << total << " s." << std::endl;
@@ -45,6 +47,11 @@ Graph kruskalMSTSequential(const Graph &graph) {
 }
 
 int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        std::cerr << "Invalid command: bin/kruskal_seq <data_path>"
+                  << std::endl;
+        return 1;
+    }
     std::string filename = argv[1];
     std::cout << "File name: " << filename << std::endl;
     struct timeval start, end;
@@ -54,13 +61,16 @@ int main(int argc, char *argv[]) {
     Graph graph;
     graph.loadGraph(filename);
     gettimeofday(&end, nullptr);
-    duration = (double)((end.tv_sec  - start.tv_sec) * 1000000u +
-                        end.tv_usec - start.tv_usec) / 1.e6;
+    duration = (double) ((end.tv_sec - start.tv_sec) * 1000000u +
+                         end.tv_usec - start.tv_usec) / 1.e6;
     std::cout << "loading time: " << duration << " s." << std::endl;
 
     // Execute the algorithm and print the MST.
     Graph mst = kruskalMSTSequential(graph);
-//    mst.printGraph();
+
+    std::string output_filename = filename + ".seq.output";
+    std::cout << "Saving MST to " << output_filename << "." << std::endl;
+    mst.saveGraph(output_filename);
 
     return 0;
 }

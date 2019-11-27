@@ -21,5 +21,5 @@ target_link_libraries(kruskal_par_sort graph)
 add_executable(kruskal_filter kruskal_filter.cpp)
 target_link_libraries(kruskal_filter graph)
 
-
-
+add_executable(kruskal_ref kruskal_ref.cpp)
+target_link_libraries(kruskal_ref graph)

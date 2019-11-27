@@ -26,7 +26,9 @@ void parallelQuickSort(std::vector<Edge>::iterator begin, std::vector<Edge>::ite
     iter[3] = end;
 
     iter[1] = std::partition(begin, end, [pivot](const Edge& edge) {return edge.weight < pivot.weight; });
-    iter[2]= std::partition(iter[1], end, [pivot](const Edge& edge) {return !(pivot.weight < edge.weight); });
+    iter[2] = std::partition(iter[1], end, [pivot](const Edge &edge) {
+        return pivot.weight >= edge.weight;
+    });
 
     for (int i = 0; i < 2; i++) {
 #pragma omp task
@@ -76,6 +78,11 @@ Graph kruskalMSTSequential(const Graph &graph) {
 }
 
 int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        std::cerr << "Invalid command: bin/kruskal_par_sort <data_path>"
+                  << std::endl;
+        return 1;
+    }
     std::string filename = argv[1];
     std::cout << "File name: " << filename << std::endl;
     struct timeval start, end;
@@ -91,7 +98,11 @@ int main(int argc, char *argv[]) {
 
     // Execute the algorithm and print the MST.
     Graph mst = kruskalMSTSequential(graph);
-//    mst.printGraph();
+
+    // Save the result.
+    std::string output_filename = filename + ".par_sort.output";
+    std::cout << "Saving MST to " << output_filename << "." << std::endl;
+    mst.saveGraph(output_filename);
 
     return 0;
 }
