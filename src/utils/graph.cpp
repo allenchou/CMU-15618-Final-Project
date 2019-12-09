@@ -16,21 +16,26 @@ void Graph::printGraph() {
 
 void Graph::loadGraph(const std::string &filename) {
     FILE *fp = fopen(filename.c_str(), "rb");
-    int m;
+    size_t m;
     fread(&num_vertices, sizeof(num_vertices), 1, fp);
     fread(&m, sizeof(m), 1, fp);
     edges.resize(m);
-    fread(&edges[0], sizeof(Edge), m, fp);
+    size_t i = 0;
+    while (i < m) {
+        i += fread(&edges[i], sizeof(Edge), m - i, fp);
+    }
     fclose(fp);
 
 }
 
 void Graph::saveGraph(const std::string &filename) {
     FILE *fp = fopen(filename.c_str(), "wb");
-    int m = edges.size(); // FIXME: not safe
+    size_t m = edges.size(); // FIXME: not safe
     fwrite(&num_vertices, sizeof(num_vertices), 1, fp);
     fwrite(&m, sizeof(m), 1, fp);
-    edges.resize(m);
-    fwrite(&edges[0], sizeof(Edge), m, fp);
+    size_t i = 0;
+    while (i < m) {
+        i += fwrite(&edges[i], sizeof(Edge), m - i, fp);
+    }
     fclose(fp);
 }
