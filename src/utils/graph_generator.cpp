@@ -6,6 +6,7 @@
  * @bug No known bugs.
  */
 
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <random>
