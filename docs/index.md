@@ -27,6 +27,7 @@ Week | Due   | Task                                                           | 
 4    | 11.24 | Implement correctness checker using Boost|Wenting Ye| Completed 
 4    | 11.24 | Implement parallel enumeration sort |Wenting Ye| Completed 
 5    | 12.1  | Implement parallel sample sort | Wenting Ye | Completed 
+5    |12.1  | Prepare different kinds of testing graphs | Xuren Zhou |Completed
 5    |12.1  | Large benchmark for all algorithms on GHC | Wenting Ye |Completed
 6    | 12.8  | Update website | Xuren Zhou |Completed
 6    | 12.8  | Poster and final report                                        | Both | Completed 
