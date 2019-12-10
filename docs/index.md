@@ -3,9 +3,10 @@
 # Final Report
 
 [report PDF](./report.pdf)
+
 [poster PDF](./poster.pdf)
 
-After discussing with Prof. Todd Mowry, we decided to focus on the parallelism of our sorting algorithm.
+After discussing with Prof. Todd Mowry, we decided to focus on the parallelism of our sorting algorithm. For more detail, please check our final report.
 
 # Checkpoint
 
