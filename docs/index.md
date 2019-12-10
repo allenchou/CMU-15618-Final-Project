@@ -1,10 +1,17 @@
 {% include mathjax.html %}
 
+# Final Report
+
+[report PDF](./report.pdf)
+[poster PDF](./poster.pdf)
+
+After discussing with Prof. Todd Mowry, we decided to focus on the parallelism of our sorting algorithm.
+
 # Checkpoint
 
 [PDF](./checkpoint.pdf)
 
-## Schedule
+## Schedule after checkpoint meeting
 
 Week | Due   | Task                                                           | Assigned to      | Status    
 -----|-------|----------------------------------------------------------------|------------------|---------
@@ -15,15 +22,13 @@ Week | Due   | Task                                                           | 
 2    | 11.10 | Implement parallel Kruskal's algorithm with parallel sorting   |Xuren Zhou |Completed
 3    | 11.17 | Implement sequential Kruskal's algorithm with Filter-Kruskal     |Xuren Zhou|Completed
 3    | 11.17 | Project checkpoint report | Xuren Zhou |Completed
-4    | 11.21 | Implement parallel Kruskal's algorithm with Filter-Kruskal | Xuren Zhou | In progress 
-4    | 11.24 | Initial benchmark and profile parallel Kruskals' algorithms | Xuren Zhou | In progress
-4    | 11.24 | Implement correctness checker using Boost|Wenting Ye|   
-4    | 11.24 | Implement sequential Borůvka's algorithm                      |Wenting Ye|           
-5    | 12.1  | Implement sequential Borůvka's algorithm with edge contraction | Xuren Zhou | 
-5    | 12.1  | Implement parallel Borůvka's algorithm                        |Wenting Ye|
-6    |12.1  | Initial benchmark and profile parallel Borůvka's algorithm | Wenting Ye |
-6    | 12.8  | Large benchmark for both algorithms on GHC/CloudLab | Xuren Zhou |
-6    | 12.8  | Poster and final report                                        | Both |       
+4    | 11.24 | Initial benchmark and profile parallel Kruskals' algorithms | Xuren Zhou | Completed 
+4    | 11.24 | Implement correctness checker using Boost|Wenting Ye| Completed 
+4    | 11.24 | Implement parallel enumeration sort |Wenting Ye| Completed 
+5    | 12.1  | Implement parallel sample sort | Wenting Ye | Completed 
+5    |12.1  | Large benchmark for all algorithms on GHC | Wenting Ye |Completed
+6    | 12.8  | Update website | Xuren Zhou |Completed
+6    | 12.8  | Poster and final report                                        | Both | Completed 
 
 ## Goals and Deliverables
 
@@ -31,10 +36,10 @@ Week | Due   | Task                                                           | 
 
 - Implement two sequential algorithms, Kruskal's algorithm and Borůvka's algorithms, as the baseline of our performance benchmark.
 - Parallelize these two sequential algorithms in shared-memory model using OpenMP:
-	- Krushal's algorithm with parallel sorting and Filter-Kruskal,
-	- Borůvka's algorithm with edge contraction.
+	- Krushal's algorithm with parallel sorting,
+	- focus on different parallel sorting algorithms: enumeration sort, quick sort, sample sort
+	- ~~Borůvka's algorithm with edge contraction.~~
 - Benchmark the speedup performance of our parallel implementations under different types and sizes of input graphs. We plan to consider two kinds of graphs: dense graphs and sparse graphs.
-- Explore the speedup performance of different parallel components, such as the parallel sorting in Krushal's algorithm and the parallel finding adjacent edge with the smallest weight of each vertex in Borůvka's algorithm.
 - Explore the speedup performance on input graphs with power-law distribution.
 - Implement a correctness checker using Boost
 
@@ -43,7 +48,7 @@ Week | Due   | Task                                                           | 
 - ~~Explore the speedup performance on input graphs with power-law distribution.~~
 - Implement a faster shared-memory MST algorithm proposed by Bader _et al._.
 - ~~Explore the possibility to implement parallel Krushal's and Borůvka's algorithms in message-passing model using MPI.~~
-- Implement Krushal's algorithm and Borůvka's algorithm using libstdc++ parallel mode.
+- Implement Krushal's algorithm using libstdc++ parallel mode.
 
 ## Progress
 
