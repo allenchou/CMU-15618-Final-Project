@@ -6,7 +6,7 @@
 
 [poster PDF](./poster.pdf)
 
-After discussing with Prof. Todd Mowry, we decided to focus on the parallelism of our sorting algorithm. For more detail, please check our final report.
+After discussing with Prof. Todd Mowry, we decided to focus on the parallelism of our sorting algorithm instead of implementing Borůvka's algorithm. For more detail, please check our final report.
 
 # Checkpoint
 
